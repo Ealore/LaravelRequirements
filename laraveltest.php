@@ -39,7 +39,7 @@
             <div class="row">
                 <h3>OpenSSL PHP Extension</h3>
                 <?php if (OPENSSL_VERSION_TEXT) { ?>
-                    <div class="alert alert-success" role="alert">OpenSSL PHP extension available in version <?php echo OPENSSL_VERSION_TEXT; ?></div>
+                    <div class="alert alert-success" role="alert">OpenSSL PHP extension available in version <?php echo str_replace('OpenSSL', '', OPENSSL_VERSION_TEXT); ?></div>
                 <?php } else { ?>
                     <div class="alert alert-warning" role="alert">OpenSSL PHP extension not available.</div>
                 <?php } ?>            </div>
