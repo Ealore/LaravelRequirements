@@ -1,8 +1,8 @@
 <?php
 /*
- * Laravel Requisites Checklist
+ * Laravel Requirements Checklist
  *
- * Verifies Laravel prerequisites
+ * Verifies Laravel requirements
  *
  * For version 5.1:
  * PHP >= 5.5.9
@@ -10,6 +10,8 @@
  * PDO PHP Extension
  * Mbstring PHP Extension
  * Tokenizer PHP Extension
+ *
+ * Author: Andrea Bergamasco <abergamasco@gmail.com>
  */
 ?><!DOCTYPE html>
 <html>
