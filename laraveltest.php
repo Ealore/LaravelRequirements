@@ -30,9 +30,9 @@
             <div class="row">
                 <h3>PHP version</h3>
                 <?php if (version_compare(PHP_VERSION, LARAVEL_PHP_VERSION) >= 0) { ?>
-                    <div class="alert alert-success" role="alert">The minimum PHP version supported is ' . LARAVEL_PHP_VERSION . ', this server is running version <?php echo PHP_VERSION; ?></div>
+                    <div class="alert alert-success" role="alert">The minimum PHP version supported is <?php echo LARAVEL_PHP_VERSION; ?>, this server is running version <?php echo PHP_VERSION; ?></div>
                 <?php } else { ?>
-                    <div class="alert alert-warning" role="alert">The minimum PHP version supported is ' . LARAVEL_PHP_VERSION . ' this server is running version <?php echo PHP_VERSION; ?></div>
+                    <div class="alert alert-warning" role="alert">The minimum PHP version supported is <?php echo LARAVEL_PHP_VERSION ?>', this server is running version <?php echo PHP_VERSION; ?></div>
                 <?php } ?>
             </div>
 
