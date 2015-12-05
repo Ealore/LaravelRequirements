@@ -15,6 +15,7 @@
 */
 
 define('LARAVEL_PHP_VERSION', '5.5.9');
+
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -27,84 +28,99 @@ define('LARAVEL_PHP_VERSION', '5.5.9');
         <div class="row">
             <h1>Laravel Requirements Checklist</h1>
         </div>
+
         <div class="row">
             <h3>PHP version</h3>
             <?php if (version_compare(PHP_VERSION, LARAVEL_PHP_VERSION) >= 0) { ?>
-                <div class="alert alert-success" role="alert">
-                    The minimum PHP version supported is <?php echo LARAVEL_PHP_VERSION; ?>,
-                    this server is running version <?php echo PHP_VERSION; ?>
-                </div>
-                <?php } else { ?>
-                <div class="alert alert-warning" role="alert">
-                    The minimum PHP version supported is <?php echo LARAVEL_PHP_VERSION ?>',
-                    this server is running version <?php echo PHP_VERSION; ?>
-                </div>
-                <?php } ?>
+            <div class="alert alert-success" role="alert">
+                The minimum PHP version supported is <?php echo LARAVEL_PHP_VERSION; ?>,
+                this server is running version <?php echo PHP_VERSION; ?>
+            </div>
+            <?php } else { ?>
+            <div class="alert alert-warning" role="alert">
+                The minimum PHP version supported is <?php echo LARAVEL_PHP_VERSION ?>',
+                this server is running version <?php echo PHP_VERSION; ?>
+            </div>
+            <?php } ?>
         </div>
 
         <div class="row">
             <h3>OpenSSL PHP Extension</h3>
             <?php if (OPENSSL_VERSION_TEXT) { ?>
-                <div class="alert alert-success" role="alert">
-                    OpenSSL PHP extension available in version <?php echo str_replace('OpenSSL', '', OPENSSL_VERSION_TEXT); ?>
-                </div>
-                <?php } else { ?>
-                <div class="alert alert-warning" role="alert">
-                    OpenSSL PHP extension not available.
-                </div>
-                <?php } ?>
+            <div class="alert alert-success" role="alert">
+                OpenSSL PHP extension available in version <?php echo str_replace('OpenSSL', '', OPENSSL_VERSION_TEXT); ?>
+            </div>
+            <?php } else { ?>
+            <div class="alert alert-warning" role="alert">
+                OpenSSL PHP extension not available.
+            </div>
+            <?php } ?>
         </div>
 
         <div class="row">
             <h3>PDO PHP Extension</h3>
             <?php if ($pdo = phpversion('pdo')) { ?>
-                <div class="alert alert-success" role="alert">
-                    PDO PHP extension available in version <?php echo $pdo; ?>
-                </div>
-                <?php } else { ?>
-                <div class="alert alert-warning" role="alert">
-                    PDO PHP extension not available.
-                </div>
-                <?php } ?>
+            <div class="alert alert-success" role="alert">
+                PDO PHP extension available in version <?php echo $pdo; ?>
+            </div>
+            <?php } else { ?>
+            <div class="alert alert-warning" role="alert">
+                PDO PHP extension not available.
+            </div>
+            <?php } ?>
         </div>
 
         <div class="row">
             <h3>PDO_SQLite PHP Extension <small>(necessary if you plan to use an SQLite database)</small></h3>
             <?php if ($pdo_sqlite = phpversion('pdo_sqlite')) { ?>
-                <div class="alert alert-success" role="alert">
-                    PDO_SQLite PHP extension available in version <?php echo $pdo_sqlite; ?>
-                </div>
-                <?php } else { ?>
-                <div class="alert alert-warning" role="alert">
-                    PDO_SQLite PHP extension not available.
-                </div>
-                <?php } ?>
+            <div class="alert alert-success" role="alert">
+                PDO_SQLite PHP extension available in version <?php echo $pdo_sqlite; ?>
+            </div>
+            <?php } else { ?>
+            <div class="alert alert-warning" role="alert">
+                PDO_SQLite PHP extension not available.
+            </div>
+            <?php } ?>
+        </div>
+
+        <div class="row">
+            <h3>Mcrypt PHP Extension</h3>
+            <?php if ($mcrypt_modes = mcrypt_list_modes() && $mcrypt_algorithms = mcrypt_list_algorithms()) { ?>
+            <div class="alert alert-success" role="alert">
+                Mcrypt PHP extension available with these supported modes: <?php echo implode(', ', $mcrypt_modes); ?>
+                and these algorithms: <?php echo implode(', ', $mcrypt_algorithms); ?>
+            </div>
+            <?php } else { ?>
+            <div class="alert alert-warning" role="alert">
+                Mcrypt PHP extension not available.
+            </div>
+            <?php } ?>
         </div>
 
         <div class="row">
             <h3>Mbstring PHP Extension</h3>
             <?php if ($mbstring = mb_get_info('internal_encoding')) { ?>
-                <div class="alert alert-success" role="alert">
-                    Mbstring PHP extension available with internal encoding set to <?php echo $mbstring; ?>
-                </div>
-                <?php } else { ?>
-                <div class="alert alert-warning" role="alert">
-                    Mbstring PHP extension not available.
-                </div>
-                <?php } ?>
+            <div class="alert alert-success" role="alert">
+                Mbstring PHP extension available with internal encoding set to <?php echo $mbstring; ?>
+            </div>
+            <?php } else { ?>
+            <div class="alert alert-warning" role="alert">
+                Mbstring PHP extension not available.
+            </div>
+            <?php } ?>
         </div>
 
         <div class="row">
             <h3>Tokenizer PHP Extension</h3>
             <?php if ($tokenizer = phpversion('tokenizer')) { ?>
-                <div class="alert alert-success" role="alert">
-                    Tokenizer PHP extension available in version <?php echo $tokenizer; ?>
-                </div>
-                <?php } else { ?>
-                <div class="alert alert-warning" role="alert">
-                    Tokenizer PHP extension not available.
-                </div>
-                <?php } ?>
+            <div class="alert alert-success" role="alert">
+                Tokenizer PHP extension available in version <?php echo $tokenizer; ?>
+            </div>
+            <?php } else { ?>
+            <div class="alert alert-warning" role="alert">
+                Tokenizer PHP extension not available.
+            </div>
+            <?php } ?>
         </div>
     </div>
 </body>
