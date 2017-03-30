@@ -20,6 +20,11 @@
 
 define('LARAVEL_MIN_PHP_VERSION', '5.6.4');
 
+if (array_key_exists('extra', $_GET) && $_GET['extra'] == 'phpinfo') {
+    phpinfo();
+    die();
+}
+
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -102,9 +107,14 @@ define('LARAVEL_MIN_PHP_VERSION', '5.6.4');
 
         <div class="row">
             <h3>XML PHP Extension</h3>
-            <?php if ($xml = phpversion('xml')) { ?>
+            <?php if (extension_loaded('xml')) { ?>
             <div class="alert alert-success" role="alert">
-                XML PHP extension available in version <?php echo $xml; ?>
+                XML PHP extension available
+                <?php
+                if ($xml = phpversion('xml')) {
+                    echo ' in version ' . $xml;
+                }
+                ?>
             </div>
             <?php } else { ?>
             <div class="alert alert-warning" role="alert">
@@ -128,6 +138,16 @@ define('LARAVEL_MIN_PHP_VERSION', '5.6.4');
                 PDO_SQLite PHP extension not available.
             </div>
             <?php } ?>
+        </div>
+
+        <div class="row">
+            <h2>Extras</h2>
+        </div>
+
+        <div class="row">
+            <ul class="list-group">
+                  <li class="list-group-item"><a href="<?php echo basename($_SERVER['PHP_SELF']) ?>?extra=phpinfo">PHP info</a></li>
+            </ul>
         </div>
     </div>
 </body>
