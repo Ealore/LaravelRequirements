@@ -4,8 +4,8 @@
 *
 * Verifies Laravel requirements
 *
-* For version 5.4:
-* PHP >= 5.6.4
+* For version 5.5:
+* PHP >= 7.0.0
 * OpenSSL PHP Extension
 * PDO PHP Extension
 * Mbstring PHP Extension
@@ -18,7 +18,7 @@
 * Author: Andrea Bergamasco <abergamasco@gmail.com>
 */
 
-define('LARAVEL_MIN_PHP_VERSION', '5.6.4');
+define('LARAVEL_MIN_PHP_VERSION', '7.0.0');
 
 ?><!DOCTYPE html>
 <html>
