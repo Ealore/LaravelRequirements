@@ -9,6 +9,7 @@ A simple PHP test script that shows if all Laravel requisites are respected.
 
 ### Release history
 
+ - 5.8 Updated script to reflect Laravel 5.8 requirements
  - 5.5  Updated script to reflect Laravel 5.5 requirements
  - 5.4  Changed tag numbering to reflect Laravel version
  - 1.3 	Added PHPinfo, improved XML version detection
