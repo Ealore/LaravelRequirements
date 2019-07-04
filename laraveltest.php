@@ -69,22 +69,33 @@ $optional_extensions = [
         </div>
 
 
-<?php foreach($required_extensions as $ext => $ext_name): ?>
+<?php foreach($required_extensions as $ext_slug => $ext_name): ?>
 
 
 <!-- <?= $ext_name ?> PHP Extension -->
 
         <div class="row">
             <h3><?= $ext_name ?> PHP Extension</h3>
-            <?php if ($ext_version = phpversion($ext)): ?>
-            <div class="alert alert-success" role="alert">
-                <?= $ext_name ?> PHP extension available in version <?php echo $ext_version; ?>
-            </div>
-          <?php else: ?>
-            <div class="alert alert-danger" role="alert">
-                <?= $ext_name ?> PHP extension not available.
-            </div>
-          <?php endif; ?>
+            <?php
+            $ext_version = null;
+
+            try {
+              $ext = new ReflectionExtension($ext_slug);
+              $ext_version = $ext->getVersion();
+            } catch(ReflectionException $exception) {
+              $ext_version = null;
+            }
+
+            if ($ext_version): ?>
+              <div class="alert alert-success" role="alert">
+                  <?= $ext_name ?> PHP extension available in version <?php echo $ext_version; ?>
+              </div>
+            <?php else: ?>
+              <div class="alert alert-danger" role="alert">
+                  <?= $ext_name ?> PHP extension not available.
+                  <pre style="margin-top: 10px;"><?= $exception->getMessage() ?></pre>
+              </div>
+            <?php endif; ?>
         </div>
 
 
@@ -101,15 +112,26 @@ $optional_extensions = [
 
         <div class="row">
             <h3><?= $ext_name ?> PHP Extension</h3>
-            <?php if ($ext_version = phpversion($ext)): ?>
-            <div class="alert alert-success" role="alert">
-                <?= $ext_name ?> PHP extension available in version <?php echo $ext_version; ?>
-            </div>
-          <?php else: ?>
-            <div class="alert alert-warning" role="alert">
-                <?= $ext_name ?> PHP extension not available.
-            </div>
-          <?php endif; ?>
+            <?php
+            $ext_version = null;
+
+            try {
+              $ext = new ReflectionExtension($ext_slug);
+              $ext_version = $ext->getVersion();
+            } catch(ReflectionException $exception) {
+              $ext_version = null;
+            }
+
+            if ($ext_version): ?>
+              <div class="alert alert-success" role="alert">
+                  <?= $ext_name ?> PHP extension available in version <?php echo $ext_version; ?>
+              </div>
+            <?php else: ?>
+              <div class="alert alert-danger" role="alert">
+                  <?= $ext_name ?> PHP extension not available.
+                  <pre style="margin-top: 10px;"><?= $exception->getMessage() ?></pre>
+              </div>
+            <?php endif; ?>
         </div>
 
 
